@@ -1,0 +1,37 @@
+{
+  "private": true,
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.ts",
+  "exports": {
+    "./*": {
+      "default": "./*"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/main.ts"
+  },
+  "keywords": [],
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.21.0",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.21.0",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.1.9",
+    "@node-rs/argon2": "^2.2.2",
+    "@std/encoding": "jsr:^1.0.11",
+    "hono": "^4.13.19",
+    "zod": "^4.6.7"
+  }
+}

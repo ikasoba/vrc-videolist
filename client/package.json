@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@preact/compat": "^18.3.2",
+    "preact": "^11.2.0",
+    "preact-iso": "^2.12.2",
+    "server": "workspace:*",
+    "vite": "^8.3.8"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  },
+  "overrides": {
+    "react": "@preact/compat",
+    "react-dom": "@preact/compat",
+    "preact-iso": {
+      "preact": "preact"
+    }
+  }
+}
