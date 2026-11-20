@@ -2,11 +2,19 @@ import * as z from "zod";
 
 export type Queue = z.infer<typeof Queue>;
 
+export type QueueItem = z.infer<typeof QueueItem>;
+export const QueueItem =
+  z.object({
+    id: z.string(),
+    url: z.url()
+  });
+
+
 export const Queue =
   z.object({
     id: z.string(),
     offset: z.number(),
-    urls: z.array(z.string())
+    urls: z.array(QueueItem)
   });
 
 export type OwnedQueue = z.infer<typeof OwnedQueue>;
@@ -26,5 +34,5 @@ export interface QueueService {
   getCurrentURL(id: string): Promise<string | null>;
   incrementURLOffset(id: string, credential: string): Promise<number | false>;
   appendURL(id: string, data: string[]): Promise<Queue>;
-  removeURL(id: string, indices: number[]): Promise<Queue>;
+  removeURL(id: string, indices: string[]): Promise<Queue>;
 }

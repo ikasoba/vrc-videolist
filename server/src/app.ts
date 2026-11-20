@@ -1,10 +1,10 @@
 import { Hono, Context, type MiddlewareHandler } from "hono";
 import { serveStatic } from "@hono/node-server/serve-static";
-import { readFile } from "node:fs/promises";
 import QueueController, { type QueueControllerContext } from "./controllers/queue.ts";
 import { KVSQueueService } from "./implements/queue/kvs.ts";
 import { createIdFactory } from "./domains/id.ts";
 import { join } from "node:path";
+import { createKVS } from "./implements/kvs/lmdb.ts";
 
 export interface ApplicationContext extends QueueControllerContext { }
 
@@ -13,19 +13,13 @@ async function createBinder(): Promise<MiddlewareHandler<ApplicationContext>> {
     new Date("1969-10-10T00:00:00.000+09:00").getTime()
   );
 
-  const kvs = new Map<string, unknown>();
+  const aborter = new AbortController();
+  process.on("beforeExit", () => {
+      if (!aborter.signal.aborted) aborter.abort();
+    });
+
   const queues = new KVSQueueService(
-    {
-      async set(key, data) {
-        kvs.set(key, data);
-      },
-      async get(key) {
-        return kvs.get(key);
-      },
-      async delete(key) {
-        return kvs.delete(key);
-      },
-    },
+    createKVS(".db", aborter.signal),
     idFactory
   );
 

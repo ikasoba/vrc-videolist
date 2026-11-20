@@ -1,0 +1,47 @@
+.Button {
+  display: grid;
+  padding: 0.5rem 1rem;
+  align-items: center;
+  justify-content: center;
+
+  border: solid 1px #0008;
+  background: #fff;
+
+  border-radius: 0.5rem;
+
+  &:disabled {
+    background: #888;
+  }
+
+  &:hover {
+    background: #efefef;
+  }
+
+  &:active {
+    animation: 0.25s button-clicked;
+  }
+
+  user-select: none;
+}
+
+@keyframes button-clicked {
+  0& {
+    background: #efefef;
+  }
+  
+  10% {
+    background: #ddd;
+  }
+
+  100& {
+    background: #efefef;
+  }
+}
+
+.rounded {
+  border-radius: 100vmax;
+}
+
+.bold {
+  font-weight: 600;
+}

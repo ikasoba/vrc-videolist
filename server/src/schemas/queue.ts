@@ -7,5 +7,5 @@ export const AppendURLRequest =
 
 export type DeleteURLRequest = z.infer<typeof DeleteURLRequest>;
 export const DeleteURLRequest =
-  z.array(z.number())
+  z.array(z.string())
   ;

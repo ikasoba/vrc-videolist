@@ -4,7 +4,7 @@ import * as argon2 from "@node-rs/argon2";
 
 export interface KVS {
   get(key: string): Promise<unknown>;
-  set(key: string, data: unknown): Promise<void>;
+  set(key: string, data: unknown, options?: { ttl: number }): Promise<void>;
   delete(key: string): Promise<boolean>;
 }
 
@@ -18,7 +18,7 @@ export class KVSQueueService implements QueueService {
   }
 
   async #save(owned: OwnedQueue): Promise<void> {
-    await this.kvs.set(owned.id, OwnedQueue.encode(owned));
+    await this.kvs.set(owned.id, OwnedQueue.encode(owned), { ttl: 60 * 60 * 3 });
   }
 
   async create(): Promise<OwnedQueue> {
@@ -69,7 +69,7 @@ export class KVSQueueService implements QueueService {
     const data = await this.get(id);
     if (data == null) return null;
 
-    return data.urls[data.offset] ?? null;
+    return data.urls[data.offset]?.url ?? null;
   }
 
   async incrementURLOffset(id: string, credential: string): Promise<number | false> {
@@ -81,6 +81,8 @@ export class KVSQueueService implements QueueService {
 
     data.offset = (data.offset + 1) % data.urls.length;
 
+    this.#save(data);
+
     return data.offset;
   }
 
@@ -88,19 +90,22 @@ export class KVSQueueService implements QueueService {
     const data = await this.#getOwned(id);
     if (data == null) throw "not found";
 
-    data.urls.push(...urls);
+    data.urls.push(...urls.map(x => ({ id: this.idFactory(), url: x })));
+    data.urls = data.urls.slice(-2048);
+    data.offset = Math.min(data.offset, data.urls.length);
 
     this.#save(data);
 
     return Queue.encode(data);
   }
 
-  async removeURL(id: string, indices: number[]): Promise<Queue> {
+  async removeURL(id: string, indices: string[]): Promise<Queue> {
     const data = await this.#getOwned(id);
     if (data == null) throw "not found";
 
     const keys = new Set(indices);
-    data.urls = data.urls.filter((_, i) => keys.has(i) == false);
+    data.urls = data.urls.filter(({ id }) => keys.has(id) == false);
+    data.offset = Math.min(data.offset, data.urls.length);
 
     this.#save(data);
 

@@ -97,6 +97,8 @@ app.get("/:id/curr", async ctx => {
     return ctx.text("not found");
   }
 
+  ctx.header("Cache-Control", "no-cache");
+
   return ctx.redirect(result);
 });
 
@@ -115,6 +117,8 @@ app.get(
       ctx.status(403);
       return ctx.text("forbidden");
     }
+
+    ctx.header("Cache-Control", "no-cache");
 
     return ctx.json(result);
   }

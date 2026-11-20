@@ -1,9 +1,14 @@
 import { OwnedQueue, Queue } from "server/src/domains/queue.ts";
 
-export async function getQueueByID(id: string): Promise<Queue> {
+export async function getQueueByID(id: string): Promise<Queue | null> {
   return await (
     fetch(`/q/${encodeURIComponent(id)}`)
       .then(async x => Queue.parse(await x.json()))
+      .catch(err => {
+        localStorage.removeItem(`vrc-queue:queue:${id}`);
+
+        return null;
+      })
   );
 }
 
@@ -14,15 +19,16 @@ export function getOwnedQueueByID(id: string): OwnedQueue | null {
   return OwnedQueue.parse(JSON.parse(raw));
 }
 
-export function toQueueURL(id: string, token: string) {
-  const x = {
-    currentURL: new URL(`/q/${encodeURIComponent(id)}/curr`, location.origin),
-    nextURL: new URL(`/q/${encodeURIComponent(id)}/next`, location.origin),
-  };
+export function toQueueCurrentURL(id: string) {
+  return new URL(`/q/${encodeURIComponent(id)}/curr`, location.origin);
+}
 
-  x.nextURL.searchParams.set("access_token", token);
+export function toQueueNextURL(id: string, token: string) {
+  const nextURL = new URL(`/q/${encodeURIComponent(id)}/next`, location.origin);
 
-  return x;
+  nextURL.searchParams.set("access_token", token);
+
+  return nextURL;
 }
 
 export async function createQueue(): Promise<OwnedQueue> {
@@ -55,7 +61,7 @@ export async function deleteQueue(token: string): Promise<boolean> {
 
 export async function appendToQueue(id: string, values: string[]): Promise<Queue> {
   return await (
-    fetch(`/q/${encodeURIComponent(id)}`, {
+    fetch(`/q/${encodeURIComponent(id)}/items`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
@@ -70,7 +76,7 @@ export async function appendToQueue(id: string, values: string[]): Promise<Queue
 
 export async function removeQueueItems(id: string, indices: number[]): Promise<Queue> {
   return await (
-    fetch(`/q/${encodeURIComponent(id)}`, {
+    fetch(`/q/${encodeURIComponent(id)}/items`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"

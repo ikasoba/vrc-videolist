@@ -1,6 +1,5 @@
 import { useCallback, useState } from "preact/hooks";
 import * as client from "./hooks/client.ts";
-import type { Queue } from "server/src/domains/queue.ts";
 import { useLocation } from "preact-iso";
 
 function OpenQueueButton() {

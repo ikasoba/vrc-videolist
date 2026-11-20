@@ -32,6 +32,8 @@
     "@node-rs/argon2": "^2.2.2",
     "@std/encoding": "jsr:^1.0.11",
     "hono": "^4.13.19",
+    "lmdb": "^3.5.11",
+    "unstorage": "2.0.0-beta.0",
     "zod": "^4.6.7"
   }
 }

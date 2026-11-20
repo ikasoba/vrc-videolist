@@ -1,0 +1,41 @@
+.List {
+  padding: 0;
+  margin: 0;
+  border-radius: 0.5rem;
+  background: #00000010;
+  border: solid 1px #0005;
+
+  overflow: auto;
+  max-height: auto;
+
+  &> ul {
+    grid-area: content;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+    padding: 0.5rem 1rem;
+    margin: 0;
+    list-style: none;
+    
+    &> li {
+      padding: 0;
+    }
+  }
+}
+
+.label {
+  display: inline-block;
+  
+  padding: 0.5rem 1rem;
+  background: #00000010;
+  border: solid 1px #0005;
+  border-top: none;
+  border-left: none;
+  border-radius: 0 0 1rem 0;
+  
+  grid-area: label;
+
+  user-select: none;
+}

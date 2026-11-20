@@ -1,0 +1,11 @@
+.Box {
+  display: block;
+  padding: 0.5rem 1rem;
+
+  border: solid 1px #0005;
+  background: #fff;
+}
+
+.rounded {
+  border-radius: 0.5rem;  
+}

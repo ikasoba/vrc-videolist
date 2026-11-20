@@ -1,0 +1,72 @@
+.Textarea {
+  display: grid;
+  grid-template:
+    "label"
+    "field" / 1fr;
+  grid-template-rows: auto 1fr;
+
+  height: 100%;
+
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  padding: 1px;
+  border: solid 1px #0008;
+  border-radius: 0.5rem;
+
+  &:has(.input:focus) {
+    padding: 0px;
+    border: solid 2px #44d;
+  }
+
+  &:has(.input:invalid) {
+    border-color: #d44;
+  }
+
+  &:has(.input:valid:is(:focus,:hover)) {
+    border-color: #2a2;
+  }
+
+  background: #fff;
+}
+
+.contents {
+  display: contents;
+}
+
+.label {
+  display: flex;
+  padding: 0.25rem 0.5rem;
+
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+  width: 100%;
+
+  color: #0008;
+
+  user-select: none;
+}
+
+.input {
+  grid-area: field;
+    
+  border: none;
+  border-radius: 0;
+  background: none;
+
+  padding: 0.5rem;
+  font-size: 16px;
+
+  font-size: 16px;
+  font-family: var(--font);
+
+  outline: none;
+
+  resize: vertical;
+
+  display: block;
+  height: 100%;
+}

@@ -11,6 +11,9 @@ importers:
       '@preact/compat':
         specifier: ^18.3.2
         version: 18.3.2(preact@11.2.0)
+      '@preact/signals':
+        specifier: ^2.11.4
+        version: 2.11.4(preact@11.2.0)
       preact:
         specifier: ^11.2.0
         version: 11.2.0(preact-render-to-string@6.8.3)
@@ -42,6 +45,12 @@ importers:
       hono:
         specifier: ^4.13.19
         version: 4.13.19
+      lmdb:
+        specifier: ^3.5.11
+        version: 3.5.11
+      unstorage:
+        specifier: 2.0.0-beta.0
+        version: 2.0.0-beta.0
       zod:
         specifier: ^4.6.7
         version: 4.6.7
@@ -64,6 +73,9 @@ packages:
   '@emnapi/wasi-threads@2.2.0':
     resolution: {integrity: sha512-JP7OYH38Q7+pyTAe14raZHLQIK7BDKbdwji+Xi3pcd/6QkJYQH3SX4wu6EplGrGJWRepoNzedfm0G3B9Z4e9Rw==}
 
+  '@harperfast/extended-iterable@1.0.5':
+    resolution: {integrity: sha512-4ScXlphaKEa49RpHmqwATq9QI9aUTdWVYDlJkzxhsD7ShJP+pHCYLznMO9n/wREY8jPjRZ59wLJY6HM5yB5Gkw==}
+
   '@hono/node-server@2.1.9':
     resolution: {integrity: sha512-Sk4NQd3GFY0WZWCzndwFMPwJhtD0y9qjsQ+pjID0/03nK9pxyBCUoUHCho8QYBLBVhi0ssL8UkNPHqbgSOFPIQ==}
     engines: {node: '>=20'}
@@ -72,6 +84,71 @@ packages:
 
   '@jsr/std__encoding@1.0.11':
     resolution: {integrity: sha512-4SmW8WXf4x4FjkxVpxbir06QYwxw/h/2+RU5A66iKXbJC9WAYCICZkH01mcOGj8FgSitF/lSTlT585RZfo8Ukg==, tarball: https://npm.jsr.io/~/11/@jsr/std__encoding/1.0.11.tgz}
+
+  '@lmdb/lmdb-darwin-arm64@3.5.11':
+    resolution: {integrity: sha512-8+e3UduMy9VLY6dFV4eFZC7pfz9MbA3cDJqQ31IcekeUp97KYG+5CkMvpRA3vYFRcRch4px59JmmNsdCkP0upA==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@lmdb/lmdb-darwin-x64@3.5.11':
+    resolution: {integrity: sha512-0bj2iJwSqAsH0uU7gZqbHt6S0R2YP6DSXxQqBJiD0c1tQu+luiHDgg14bNYkfCz6npNx9sTxD1ncXLKwrUuWtA==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@lmdb/lmdb-linux-arm64@3.5.11':
+    resolution: {integrity: sha512-J91Pk0CvvH67zN3wNpju8Hf9nsNZ46lja70YYOabmauc2XbofKk89QMj1WZ5Vv/zMB2hAxylknqebiTROlqBXA==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@lmdb/lmdb-linux-arm@3.5.11':
+    resolution: {integrity: sha512-o8thad4v8S5pRV0/0CFBzsgvYnrlADLfMvKWoOFz5Ru5v0WiPFmO+9DZ09cbhl8p40owSLRCj/hvfvDIvKnqWQ==}
+    cpu: [arm]
+    os: [linux]
+
+  '@lmdb/lmdb-linux-x64@3.5.11':
+    resolution: {integrity: sha512-CzSR9ZCliHich4RdPpCnUZQFfk7GvHVV+mWGSaFTaVwe5rnbYF5Rm/L+uvBMFXNg6EoFj9eNGpU2aOc2TLpo5w==}
+    cpu: [x64]
+    os: [linux]
+
+  '@lmdb/lmdb-win32-arm64@3.5.11':
+    resolution: {integrity: sha512-f2XGku0H2JSz7WRVC2RTNPIDr0mBmmoCaBadYe2wBHUtWIBjd+sOjEHL4vtwRrWEIXrkvrvsP3DPRfnK5Xv8ow==}
+    cpu: [arm64]
+    os: [win32]
+
+  '@lmdb/lmdb-win32-x64@3.5.11':
+    resolution: {integrity: sha512-h9LtmYO5cFH3zpilcoT/vjBhhrtMdVrINZqi4TzkDcGNwsJJNvGIVAL0nR1ce4fL0KcDMfj3uvgBMc5eGG84FQ==}
+    cpu: [x64]
+    os: [win32]
+
+  '@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.7':
+    resolution: {integrity: sha512-2zPHLn+MuGJ6GP/5jDrwa9Jy0CI+D3Ibpvopf5SFfmc1G9gdofR4uB7YrJAAp4vodn/7iDOciyv8bgkRPLw7cA==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@msgpackr-extract/msgpackr-extract-darwin-x64@3.0.7':
+    resolution: {integrity: sha512-of1miwFfEdgs5nythewsEoocfpbjzUf8PC996YDe3kAyv0ZJiMJs5NXlYhE6IdjxfNEPqUXj/BYBnpD8kRdfeQ==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@msgpackr-extract/msgpackr-extract-linux-arm64@3.0.7':
+    resolution: {integrity: sha512-jcRydYARTW0gX5idJhxV7m3KkRUD7KtZLYFF1ZY18HrPqpGY0TCqPUTJCwka2kVfVOwfKs3ZmlPSmQb4S6xj7w==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@msgpackr-extract/msgpackr-extract-linux-arm@3.0.7':
+    resolution: {integrity: sha512-aDPbiEkFHs3H68705JKxJ15IT41wFdvDhba1pL8ygfdoshboL5dsXtiu76/CqhLWYneE+9hwBE+0abqNOiQ4Bw==}
+    cpu: [arm]
+    os: [linux]
+
+  '@msgpackr-extract/msgpackr-extract-linux-x64@3.0.7':
+    resolution: {integrity: sha512-A9xOmARctmUvHrBj5GGzGAigsZFnqE4kld5oprX3PyPbkVALV4jwBc17gPZrhSOvnXQc81hE9K7S2hDUCgialA==}
+    cpu: [x64]
+    os: [linux]
+
+  '@msgpackr-extract/msgpackr-extract-win32-x64@3.0.7':
+    resolution: {integrity: sha512-PRBiOqK4mcR0rvm6nybO7pSOYRR2Zza0+43UK2IvbVGelzMqZViiZJmOWGuWOX678QKESO6YrHx36z43nSS6iQ==}
+    cpu: [x64]
+    os: [win32]
 
   '@napi-rs/wasm-runtime@1.2.6':
     resolution: {integrity: sha512-mRyDmEw9/fCDXCGfL1sbgIw/GUK0PVxRW4YwgPN61F3LQ+fSyoBFarJVzgGyhF6kRzEQZ0FejDqm4WLXSeqQmw==}
@@ -173,6 +250,14 @@ packages:
     resolution: {integrity: sha512-5vSl55K5yLMvocT7PBKxDOHGgYPjMrKQqqr6roSNjIXcJOtSgDDMjpiCAF3s7klRdmGrN75b/Przmjw8gmlg/w==}
     peerDependencies:
       preact: '*'
+
+  '@preact/signals-core@1.14.5':
+    resolution: {integrity: sha512-vcRv7Ityz5JVmeiVqIluLFzT/PDS/AlhHUpw3/aUWqcVUs6bDGIPXE/6RSC4evBNWYvnniozg5Syfj33al3gkg==}
+
+  '@preact/signals@2.11.4':
+    resolution: {integrity: sha512-Rb+5RPo9gWSaHtzJeauhHxiC8KP/IF2DEPkHPEOGOnuy2wnJzRqyeLRankUCYd6ADqtxS6GnWGv6Ie343d8aYw==}
+    peerDependencies:
+      preact: '>= 10.25.0 || >=11.0.0-0'
 
   '@rolldown/binding-android-arm-eabi@1.2.19':
     resolution: {integrity: sha512-e+Ebe0WT+9tbXmNKPIiC8YrWAHYwug3m6i4p3rZGGulfZri1jtI4HslT+OZnFf/OIHowWF71DTlHwXBP2SiA7A==}
@@ -500,10 +585,31 @@ packages:
     resolution: {integrity: sha512-WkUDrojuJs0xkgGf2udWxa3yGBRxPtxUkB79i6aCZLRgc7PM8fZe9TosfPDcvEpQZbuFASnHYmRLBLUbmLOIIA==}
     engines: {node: '>= 12.0.0'}
 
+  lmdb@3.5.11:
+    resolution: {integrity: sha512-Eb0mC3qpaLsIlxwNyiIqtVT8vd9Cws2xNA5mGq/hpgYgGO5unMSf9uK3MSRxxbDgh92JlESyiqN4wVY+1G173w==}
+    hasBin: true
+
+  msgpackr-extract@3.0.7:
+    resolution: {integrity: sha512-/dOQboWnkR1cjm88XyH/cGSivECGgyQu3814+bNUAq5wACQC8Ya/CViB9WApvWJ5Hya/JJQQmUeBFOZj8MLjGA==}
+    hasBin: true
+
+  msgpackr@1.12.1:
+    resolution: {integrity: sha512-4EUH9tQHnMmEgzW/MdAP0KIfa1T9AF+htl0ffe2n5vb2EKn9y2co8ccpgWko6S52Jy1PQZKwRnx5/KkYjtd9MQ==}
+
   nanoid@3.3.20:
     resolution: {integrity: sha512-uKdg2G3GNCKQn9byYOpxbGqrT2fGO5KRt5J/8b3pok8rT6qxGWF6hxMyJiEYtAf+FVyYuD9hRaDqX5uPFYJ4ZQ==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  node-addon-api@6.1.0:
+    resolution: {integrity: sha512-+eawOlIgy680F0kBzPUNFhMZGtJ1YmqM6l4+Crf4IkImjYrO/mqPwRMh352g23uIaQKFItcQ64I7KMaJxHgAVA==}
+
+  node-gyp-build-optional-packages@5.2.2:
+    resolution: {integrity: sha512-s+w+rBWnpTMwSFbaE0UXsRlg7hU4FjekKU4eyAih5T8nJuNZT1nNsskXpxmeqSK9UzkBl6UgRlnKc8hz8IEqOw==}
+    hasBin: true
+
+  ordered-binary@1.6.3:
+    resolution: {integrity: sha512-Bc8LnA2x4ZHRQ9LjCm/NOdD3+CTQPhGNu8m7/6+ERtiB6Bb/fn7nCySwcmAC+5WCqwelpSAQgo1VX9BGpsC0tQ==}
 
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
@@ -559,6 +665,9 @@ packages:
   undici-types@8.9.0:
     resolution: {integrity: sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg==}
 
+  unstorage@2.0.0-beta.0:
+    resolution: {integrity: sha512-VeTY+zQ3ozrNtIFBRQRuSwanHdpuRH+4t/ZzchZIVQO8/oKq2xl7fJ9c+z76tWJDW/BEXSEuzpHOxqoAl6B64A==}
+
   vite@8.3.8:
     resolution: {integrity: sha512-LzOn3h9rG/0vhLdXrV4yJ4QFA9eEoqCl+Yx+kGJd7aB9w6nfNgVHKSYwLPZUHrz4ZGa+t+kXjV9itvcHDLQouA==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -602,6 +711,9 @@ packages:
       yaml:
         optional: true
 
+  weak-lru-cache@1.2.3:
+    resolution: {integrity: sha512-pF0uTATIDYJFeEX4GDD5zjOe2jU9EJbBRcpcGPonUcao7eSp2hl6VA0b2Ims9jisMX33x6zgnozvaBCEsXNGPw==}
+
   zod@4.6.7:
     resolution: {integrity: sha512-g8W2D2kU6a8untc053fX1uVBKzM7yqAxW/3zwk83+6RyF2+SKOuV+c0wBDhUwzV1PaGapmZH+rmcUzPf+3CGwg==}
 
@@ -623,11 +735,52 @@ snapshots:
       tslib: 2.9.1
     optional: true
 
+  '@harperfast/extended-iterable@1.0.5': {}
+
   '@hono/node-server@2.1.9(hono@4.13.19)':
     dependencies:
       hono: 4.13.19
 
   '@jsr/std__encoding@1.0.11': {}
+
+  '@lmdb/lmdb-darwin-arm64@3.5.11':
+    optional: true
+
+  '@lmdb/lmdb-darwin-x64@3.5.11':
+    optional: true
+
+  '@lmdb/lmdb-linux-arm64@3.5.11':
+    optional: true
+
+  '@lmdb/lmdb-linux-arm@3.5.11':
+    optional: true
+
+  '@lmdb/lmdb-linux-x64@3.5.11':
+    optional: true
+
+  '@lmdb/lmdb-win32-arm64@3.5.11':
+    optional: true
+
+  '@lmdb/lmdb-win32-x64@3.5.11':
+    optional: true
+
+  '@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.7':
+    optional: true
+
+  '@msgpackr-extract/msgpackr-extract-darwin-x64@3.0.7':
+    optional: true
+
+  '@msgpackr-extract/msgpackr-extract-linux-arm64@3.0.7':
+    optional: true
+
+  '@msgpackr-extract/msgpackr-extract-linux-arm@3.0.7':
+    optional: true
+
+  '@msgpackr-extract/msgpackr-extract-linux-x64@3.0.7':
+    optional: true
+
+  '@msgpackr-extract/msgpackr-extract-win32-x64@3.0.7':
+    optional: true
 
   '@napi-rs/wasm-runtime@1.2.6(@emnapi/core@2.0.0-beta.2)(@emnapi/runtime@2.0.0-beta.2)':
     dependencies:
@@ -695,6 +848,13 @@ snapshots:
 
   '@preact/compat@18.3.2(preact@11.2.0)':
     dependencies:
+      preact: 11.2.0(preact-render-to-string@6.8.3)
+
+  '@preact/signals-core@1.14.5': {}
+
+  '@preact/signals@2.11.4(preact@11.2.0)':
+    dependencies:
+      '@preact/signals-core': 1.14.5
       preact: 11.2.0(preact-render-to-string@6.8.3)
 
   '@rolldown/binding-android-arm-eabi@1.2.19':
@@ -880,7 +1040,48 @@ snapshots:
       lightningcss-win32-arm64-msvc: 1.33.0
       lightningcss-win32-x64-msvc: 1.33.0
 
+  lmdb@3.5.11:
+    dependencies:
+      '@harperfast/extended-iterable': 1.0.5
+      msgpackr: 1.12.1
+      node-addon-api: 6.1.0
+      node-gyp-build-optional-packages: 5.2.2
+      ordered-binary: 1.6.3
+      weak-lru-cache: 1.2.3
+    optionalDependencies:
+      '@lmdb/lmdb-darwin-arm64': 3.5.11
+      '@lmdb/lmdb-darwin-x64': 3.5.11
+      '@lmdb/lmdb-linux-arm': 3.5.11
+      '@lmdb/lmdb-linux-arm64': 3.5.11
+      '@lmdb/lmdb-linux-x64': 3.5.11
+      '@lmdb/lmdb-win32-arm64': 3.5.11
+      '@lmdb/lmdb-win32-x64': 3.5.11
+
+  msgpackr-extract@3.0.7:
+    dependencies:
+      node-gyp-build-optional-packages: 5.2.2
+    optionalDependencies:
+      '@msgpackr-extract/msgpackr-extract-darwin-arm64': 3.0.7
+      '@msgpackr-extract/msgpackr-extract-darwin-x64': 3.0.7
+      '@msgpackr-extract/msgpackr-extract-linux-arm': 3.0.7
+      '@msgpackr-extract/msgpackr-extract-linux-arm64': 3.0.7
+      '@msgpackr-extract/msgpackr-extract-linux-x64': 3.0.7
+      '@msgpackr-extract/msgpackr-extract-win32-x64': 3.0.7
+    optional: true
+
+  msgpackr@1.12.1:
+    optionalDependencies:
+      msgpackr-extract: 3.0.7
+
   nanoid@3.3.20: {}
+
+  node-addon-api@6.1.0: {}
+
+  node-gyp-build-optional-packages@5.2.2:
+    dependencies:
+      detect-libc: 2.1.2
+
+  ordered-binary@1.6.3: {}
 
   picocolors@1.1.1: {}
 
@@ -962,6 +1163,8 @@ snapshots:
 
   undici-types@8.9.0: {}
 
+  unstorage@2.0.0-beta.0: {}
+
   vite@8.3.8(@types/node@26.6.6):
     dependencies:
       lightningcss: 1.33.0
@@ -972,5 +1175,7 @@ snapshots:
     optionalDependencies:
       '@types/node': 26.6.6
       fsevents: 2.3.3
+
+  weak-lru-cache@1.2.3: {}
 
   zod@4.6.7: {}

@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite build -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,6 +14,7 @@
   "type": "module",
   "dependencies": {
     "@preact/compat": "^18.3.2",
+    "@preact/signals": "^2.11.4",
     "preact": "^11.2.0",
     "preact-iso": "^2.12.2",
     "server": "workspace:*",
