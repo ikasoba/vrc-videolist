@@ -29,10 +29,12 @@
   },
   "dependencies": {
     "@hono/node-server": "^2.1.9",
+    "@hono/session": "^0.2.2",
     "@node-rs/argon2": "^2.2.2",
     "@std/encoding": "jsr:^1.0.11",
     "hono": "^4.13.19",
     "lmdb": "^3.5.11",
+    "misskey-js": "2026.11.1-beta.0",
     "unstorage": "2.0.0-beta.0",
     "zod": "^4.6.7"
   }

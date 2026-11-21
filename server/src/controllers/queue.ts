@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { Queue, type QueueService } from "../domains/queue.ts";
-import { withBearerToken, withZodBody } from "../middlewares.ts";
+import { withBearerToken, withLoggedInSession, withZodBody } from "../middlewares.ts";
 import { AppendURLRequest, DeleteURLRequest } from "../schemas/queue.ts";
 
 export interface QueueControllerContext {
@@ -23,7 +23,7 @@ app.get("/:id", async ctx => {
   return ctx.json(result);
 });
 
-app.post("/", async ctx => {
+app.post("/", withLoggedInSession(), async ctx => {
   const queues = ctx.get("queues");
 
   const result =

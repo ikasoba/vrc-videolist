@@ -1,0 +1,12 @@
+{
+  "clientDetail": {
+    "client_id": "https://example.com/",
+    "redirect_uri": "https://example.com/redirect"
+  },
+  "issuers": [
+    {
+      "pattern": "^https://example\\.com(/|$)",
+      "origin": "https://example.com/"
+    }
+  ]
+}
