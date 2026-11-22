@@ -14,6 +14,7 @@
   "type": "module",
   "dependencies": {
     "@preact/compat": "^18.3.2",
+    "@preact/preset-vite": "^2.10.6",
     "@preact/signals": "^2.11.4",
     "preact": "^11.2.0",
     "preact-iso": "^2.12.2",

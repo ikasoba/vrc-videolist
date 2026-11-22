@@ -143,7 +143,7 @@ export function QueuePage({ params }: { params: { id: string; } }) {
       if (queue == null) {
         setQueue(null);
       } else {
-        setQueue(x => ({ ...queue, credential: getOwnedQueueByID(id)?.credential }));
+        setQueue({ ...queue, credential: getOwnedQueueByID(id)?.credential });
       }
     })();
   }, [id]);

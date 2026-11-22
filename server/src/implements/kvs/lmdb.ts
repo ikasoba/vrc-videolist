@@ -42,6 +42,7 @@ export function createKVS(base: string, abortSignal: AbortSignal): KVS {
 
       for (const item of it) {
         await db.remove(item.value);
+        await db.remove(item.key);
       }
     });
 
@@ -62,7 +63,7 @@ export function createKVS(base: string, abortSignal: AbortSignal): KVS {
         });
 
         for (const item of it) {
-          await db.remove(item.value);
+          await db.remove(item.key);
         }
 
         return await db.remove(`.data:${k}`);
@@ -76,7 +77,7 @@ export function createKVS(base: string, abortSignal: AbortSignal): KVS {
 
       const entry = result.data;
 
-      if (entry.ttl != null && entry.ttl >= Date.now()) {
+      if (entry.ttl != null && entry.ttl <= Date.now()) {
         await this.delete(k);
 
         return undefined;
