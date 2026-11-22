@@ -1,7 +1,7 @@
 {
   "clientDetail": {
     "client_id": "https://example.com/",
-    "redirect_uri": "https://example.com/redirect"
+    "redirect_uri": "https://example.com/a/redirect"
   },
   "issuers": [
     {
