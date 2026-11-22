@@ -1,0 +1,12 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Containerfile
+    environment:
+      - PORT=80
+      - MIAUTH_OPTIONS_PATH=/app/server/miauth_options.json
+    ports:
+      - 127.0.0.1:8080:80
+    volumes:
+      - ./server/miauth_options.json:/app/server/miauth_options.json
