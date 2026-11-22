@@ -6,7 +6,9 @@ services:
     environment:
       - PORT=80
       - MIAUTH_OPTIONS_PATH=/app/server/miauth_options.json
+      - DATAFILE_PATH=/app/.db
     ports:
       - 127.0.0.1:8080:80
     volumes:
       - ./server/miauth_options.json:/app/server/miauth_options.json
+      - data:/app/.db

@@ -2,9 +2,9 @@
 
 VRChat の自作動画プレイヤー向けの一括 URL 管理用の Web アプリ
 
-## サーバーの設定
+## サーバー
 
-サーバーは次の情報を必要とします。
+### 必須パラメーター
 
 - いたずら軽減のためにキューの作成に Misskey での認証をユーザーに要求するため、ログインに対応するインスタンス
 - `client_id` と `redirect_uri` の URL 指定 (redirect_uri のエンドポイントは `/a/redirect` にあります)
@@ -15,6 +15,11 @@ VRChat の自作動画プレイヤー向けの一括 URL 管理用の Web アプ
 - `./server/miauth_options.example.json`
 
 Docker Compose を利用した管理のために `./compose.example.yaml` に雛形を用意しています。
+
+### オプショナルなパラメーター
+
+- `MIAUTH_OPTIONS_PATH` を変更することで `miauth_options.json` のパスを設定できます
+- `DATAFILE_PATH` を変更することでキュー情報の保存先を変更することができます
 
 ## VRChat 側の仕組み
 

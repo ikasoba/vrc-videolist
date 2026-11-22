@@ -26,7 +26,7 @@ async function createBinder(): Promise<MiddlewareHandler<ApplicationContext>> {
     });
 
   const queues = new KVSQueueService(
-    createKVS(".db", aborter.signal),
+    createKVS(process.env.DATAFILE_PATH ?? ".db", aborter.signal),
     idFactory
   );
 
