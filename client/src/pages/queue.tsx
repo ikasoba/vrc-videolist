@@ -11,6 +11,7 @@ import { Textarea } from "../components/Textarea.tsx";
 import type { OwnedQueue, Queue, QueueItem } from "server/src/domains/queue.js";
 import { useComputed, useSignal } from "@preact/signals";
 import type { Signalish } from "preact";
+import { createConfigCode } from "../utils/configcode.ts";
 
 interface QueueDetailProps {
   id: string;
@@ -28,6 +29,13 @@ function QueueDetail({ id, credential }: QueueDetailProps) {
     return client.toQueueNextURL(id, credential);
   }, [id, credential]);
 
+  const configcode = useMemo(() => {
+    if (credential == null) return null;
+    const origin = new URL(location.origin);
+
+    return createConfigCode(origin, id, credential);
+  }, [id, credential])
+
   return (
     <Grid
       areas={[["label", "content"]]}
@@ -35,6 +43,13 @@ function QueueDetail({ id, credential }: QueueDetailProps) {
     >
       <span> キュー ID </span>
       <FullSelectableText text={id} />
+      {configcode != null
+        ?
+        <>
+          <span> キュー設定コード </span>
+          <FullSelectableText text={configcode} />
+        </>
+        : null}
       <span> 動画スロットの URL </span>
       <FullSelectableText text={queueCurrentURL.toString()} />
       {
